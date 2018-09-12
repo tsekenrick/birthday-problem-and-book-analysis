@@ -11,23 +11,16 @@ def month_num_to_string(month_num):
     return month_list[month_num - 1]
 
 def date_to_string(date_list):
-    return "{1} {2}, {0}".format(date_list[0], 
-            month_num_to_string(date_list[1]), date_list[2])
+    if(len(date_list) == 3):
+        return "{1} {2}, {0}".format(date_list[0], 
+                month_num_to_string(date_list[1]), date_list[2])
+    elif(len(date_list) == 2):
+        return "{0} {1}".format(month_num_to_string(date_list[0]), date_list[1])
 
 def dates_to_strings(list_of_date_lists):
     dates = []
     for date in list_of_date_lists:
         dates.append(date_to_string(date))
-    
-    return dates
-
-def date_to_string_no_year(date_list):
-    return "{0} {1}".format(month_num_to_string(date_list[0]), date_list[1])
-
-def dates_to_strings_no_year(list_of_date_lists):
-    dates = []
-    for date in list_of_date_lists:
-        dates.append(date_to_string_no_year(date))
     
     return dates
 
